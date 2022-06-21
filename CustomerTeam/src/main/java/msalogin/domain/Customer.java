@@ -37,7 +37,7 @@ public class Customer {
     @Column
     private String JuminNo;
 
-       @PostPersist
+    @PostPersist
     public void onPostPersist() {
         CustomerRegistered customerRegistered = new CustomerRegistered();
         BeanUtils.copyProperties(this, customerRegistered);
@@ -55,7 +55,7 @@ public class Customer {
 
     @PostRemove
     public void onPostRemove() {
-        CustomerCancelled customerCanceled = new CustomerCanceled();
+        CustomerCancelled customerCanceled = new CustomerCancelled();
         BeanUtils.copyProperties(this, customerCanceled);
         customerCanceled.publishAfterCommit();
     }
