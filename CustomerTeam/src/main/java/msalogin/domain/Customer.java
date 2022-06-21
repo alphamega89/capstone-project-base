@@ -25,6 +25,8 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
+    private Long id;
+    @Column
     private Long CustomerId;
     @Column
     private String Status;
