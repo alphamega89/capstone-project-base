@@ -21,7 +21,7 @@ import javax.persistence.*;
 // @Setter
 @Entity
 @Table(name = "CustomerList_Base")
-// @Data
+@Data
 public class Customer {
 
     @Id
@@ -76,7 +76,7 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFoodId() {
+    public String getFoodId() {ㄹㅈㄷㄹ
         return foodId;
     }
 
