@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Transactional
 public class LoginController {
 
-    @Autowired
-    LoginRepository loginRepository;
+    //@Autowired
+    //LoginRepository loginRepository;
     // keep
+
+    @GetMapping("/helle")
+    public String hello(){
+        return "Hello World";
+    }
 }

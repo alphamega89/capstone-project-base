@@ -18,7 +18,7 @@ public class Account {
 
     private String accountNo;
 
-    private String accountBal;
+    private Double accountBal;
 
     private String accountStatus;
 

@@ -10,7 +10,7 @@ public class AccountUpdated extends AbstractEvent {
 
     private String customerId;
     private String accountNo;
-    private String accountBal;
+    private Double accountBal;
     private String accountStatus;
     private String trnsCode;
 
