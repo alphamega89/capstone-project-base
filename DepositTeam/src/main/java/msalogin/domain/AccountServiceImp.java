@@ -36,7 +36,7 @@ public class AccountServiceImp implements AccountService {
         accountCust.setAccountNo(accountNum);
 
         //계좌잔액 셋팅
-        String firstbal = "0";
+        Double firstbal = 0.0;
         accountCust.setAccountBal(firstbal);
 
         //계좌상태 셋팅
@@ -94,6 +94,64 @@ public class AccountServiceImp implements AccountService {
         return accountCust;
     }
 
+    //계좌 입금
+    public void depositAccount(String customerId, Double money){
+        System.out.println("#########Account Service : Start deposit Account#######");
+        //고객 obj 확인
+        Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
+        Account accountCust = accountOptional.get();
+
+        //기존 잔액 조회 
+        Double previousBal = accountCust.getAccountBal();
+        //신규 잔액 셋팅
+        Double newAccountBal = money + previousBal;
+        accountCust.setAccountBal(newAccountBal);
+        //DB저장
+        accountRepository.save(accountCust);
+
+        //EVT발행
+        AccountUpdated accountUpdated = new AccountUpdated();
+        accountUpdated.setCustomerId(customerId);
+        accountUpdated.setAccountNo(accountCust.getAccountNo());
+        accountUpdated.setAccountBal(newAccountBal);
+        accountUpdated.publishAfterCommit();
+
+        System.out.println("#########Account Service : End deposit Account#######");
+
+    }
+
+    //계좌 출금
+    public void withdrawAccount(String customerId, Double money){
+        System.out.println("#########Account Service : Start deposit Account#######");
+        //고객 obj 확인
+        Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
+        Account accountCust = accountOptional.get();
+    
+        //기존 잔액 조회 
+        Double previousBal = accountCust.getAccountBal();
+        
+        //기존 잔액이 출금 요청금액이 큰 경우가 정상 로직
+        if(previousBal >= money){    
+            //신규 잔액 셋팅
+            Double newAccountBal = previousBal - money;
+            accountCust.setAccountBal(newAccountBal);
+            //DB저장
+            accountRepository.save(accountCust);
+
+            //EVT발행
+            AccountUpdated accountUpdated = new AccountUpdated();
+            accountUpdated.setCustomerId(customerId);
+            accountUpdated.setAccountNo(accountCust.getAccountNo());
+            accountUpdated.setAccountBal(newAccountBal);
+            accountUpdated.publishAfterCommit();
+        }else{
+            //에러메서지 출력
+            System.out.println("#########잔액이 부족합니다.#######");
+        }
+
+        System.out.println("#########Account Service : End deposit Account#######");
+
+        }
     
     public Account save(String data){
         ObjectMapper mapper = new ObjectMapper();

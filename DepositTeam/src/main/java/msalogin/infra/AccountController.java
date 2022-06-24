@@ -40,4 +40,18 @@ public class AccountController {
         accountService.getAccount(customerId);
     }
 
+    //계좌 입금
+    @RequestMapping(value = "/deposit/{customerId}/{money}", method = RequestMethod.POST)
+    public void depositAccountSvc (@PathVariable(value = "customerId") String customerId, @PathVariable(value = "money") Double money){
+        System.out.println("#############AccountService Controller : deposit############");
+        accountService.depositAccount(customerId, money);
+    }
+
+    //계좌 출금
+    @RequestMapping(value = "/withdraw/{customerId}/{money}", method = RequestMethod.POST)
+    public void withdrawAccountSvc (@PathVariable(value = "customerId") String customerId, @PathVariable(value = "money") Double money){
+        System.out.println("#############AccountService Controller : withdraw############");
+        accountService.withdrawAccount(customerId, money);
+    }
+
 }
