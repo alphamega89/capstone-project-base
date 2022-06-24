@@ -1,3 +1,6 @@
+#ecrcode 
+export ecrcode=$(aws --region $region ecr get-login-password)
+
 #아마존 로그인
 https://uengine2.signin.aws.amazon.com/console
 
