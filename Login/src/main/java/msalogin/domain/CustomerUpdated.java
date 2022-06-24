@@ -6,9 +6,9 @@ import msalogin.domain.*;
 import msalogin.infra.AbstractEvent;
 
 @Data
-public class CustomerRegistered extends AbstractEvent {
+public class CustomerUpdated extends AbstractEvent {
 
-    private String CustomerId;
+    private int CustomerId;
     private String Status;
     // keep
 

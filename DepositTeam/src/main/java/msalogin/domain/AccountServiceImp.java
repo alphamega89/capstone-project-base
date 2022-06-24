@@ -18,8 +18,8 @@ public class AccountServiceImp implements AccountService {
     @Autowired
     private final AccountRepository accountRepository;
 
-    //계좌 신규 (String customerId, String accountNo, String accountBal, String accountStatus, String trnsCode)
-    public void createAccount (String customerId){
+    //계좌 신규 (int customerId, String accountNo, String accountBal, String accountStatus, String trnsCode)
+    public void createAccount (int customerId){
         System.out.println("#########Account Service : Start Create Account#######");
         //신규된 고객 obj 확인
         Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
@@ -28,7 +28,7 @@ public class AccountServiceImp implements AccountService {
         
         //계좌번호 셋팅
         String firstNum = "111";
-        String midNum = customerId;
+        String midNum = Integer.toString(customerId);
         String lastNum = "99999";
 
         String accountNum = firstNum + midNum + lastNum;
@@ -56,13 +56,14 @@ public class AccountServiceImp implements AccountService {
         accountUpdated.setCustomerId(customerId);
         accountUpdated.setAccountNo(accountNum);
         accountUpdated.setAccountBal(firstbal);
+        accountUpdated.setAccountStatus(firstStatus);
         accountUpdated.publishAfterCommit();
 
     }
 
 
     //계좌 해지
-    public void deleteAccount (String customerId){
+    public void deleteAccount (int customerId){
         System.out.println("#########Account Service : Start delete Account#######");
         //고객 obj 확인
         Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
@@ -85,7 +86,7 @@ public class AccountServiceImp implements AccountService {
     }
 
     //조회
-    public Account getAccount(String customerId){
+    public Account getAccount(int customerId){
         System.out.println("#########Account Service : Start Check Account#######");
         //고객 obj 확인
         Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
@@ -95,7 +96,7 @@ public class AccountServiceImp implements AccountService {
     }
 
     //계좌 입금
-    public void depositAccount(String customerId, Double money){
+    public void depositAccount(int customerId, Double money){
         System.out.println("#########Account Service : Start deposit Account#######");
         //고객 obj 확인
         Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
@@ -114,6 +115,8 @@ public class AccountServiceImp implements AccountService {
         accountUpdated.setCustomerId(customerId);
         accountUpdated.setAccountNo(accountCust.getAccountNo());
         accountUpdated.setAccountBal(newAccountBal);
+        String trsCd = "1"; //1: 입금 2: 출금
+        accountUpdated.setTrnsCode(trsCd);
         accountUpdated.publishAfterCommit();
 
         System.out.println("#########Account Service : End deposit Account#######");
@@ -121,7 +124,7 @@ public class AccountServiceImp implements AccountService {
     }
 
     //계좌 출금
-    public void withdrawAccount(String customerId, Double money){
+    public void withdrawAccount(int customerId, Double money){
         System.out.println("#########Account Service : Start deposit Account#######");
         //고객 obj 확인
         Optional<Account> accountOptional = accountRepository.findBycustomerId(customerId);
@@ -143,6 +146,8 @@ public class AccountServiceImp implements AccountService {
             accountUpdated.setCustomerId(customerId);
             accountUpdated.setAccountNo(accountCust.getAccountNo());
             accountUpdated.setAccountBal(newAccountBal);
+            String trsCd = "2"; //1: 입금 2: 출금
+            accountUpdated.setTrnsCode(trsCd);
             accountUpdated.publishAfterCommit();
         }else{
             //에러메서지 출력

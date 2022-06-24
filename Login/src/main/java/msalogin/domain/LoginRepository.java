@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 //@RepositoryRestResource(collectionResourceRel = "logins", path = "logins")
 public interface LoginRepository extends CrudRepository<Login, String> {
     
-    Optional<Login> findBycustomerId(String customerId);
+    Optional<Login> findBycustomerId(int customerId);
 }
 

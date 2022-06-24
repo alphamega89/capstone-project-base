@@ -4,12 +4,12 @@ import lombok.Data;
 import msalogin.infra.AbstractEvent;
 
 @Data
-public class CustomerRegistered extends AbstractEvent{
+public class CustomerUpdated extends AbstractEvent{
 
-    private String customerId;
+    private int customerId;
     private String status;
 
-    public CustomerRegistered() {
+    public CustomerUpdated() {
         super();
     }
     // keep

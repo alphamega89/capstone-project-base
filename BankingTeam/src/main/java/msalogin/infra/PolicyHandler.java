@@ -19,14 +19,21 @@ public class PolicyHandler {
     @Autowired
     SmartbankingRepository smartbankingRepository;
 
-    //고객이 신규되었을때 스마트폰 뱅킹 테이블에 고객 ID만 가지고 데이터 생성
+    //
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenCustomerRegistered_then_CREATE_1 (@Payload CustomerRegistered customerRegistered) {
-        if (!customerRegistered.validate()) return;
+    public void whenCustomerRegistered_then_CREATE_1 (@Payload CustomerUpdated customerUpdated) {
+        if (!customerUpdated.validate()) return;
 
         Smartbanking smartbaking = new Smartbanking();
 
-        smartbaking.setCustomerId(customerRegistered.getCustomerId());
+        //고객 상태가 정상("1")인 경우만 신규된 고객 번호 DB insert
+        if("1".equals(customerUpdated.getStatus())){
+            smartbaking.setCustomerId(customerUpdated.getCustomerId());
+        }
+        //고객 상태가 해지("9")인 경우 전자금융 상태도 "9"로 변경
+        else if ("9".equals(customerUpdated.getStatus())){
+            smartbaking.setStatus(customerUpdated.getStatus());
+        }
 
         System.out.println("#########Smartbanking Policy handler : CREATE Obj##########" + smartbaking);
         smartbankingRepository.save(smartbaking);

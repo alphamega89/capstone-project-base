@@ -19,8 +19,4 @@ public class LoginController {
     //LoginRepository loginRepository;
     // keep
 
-    @GetMapping("/helle")
-    public String hello(){
-        return "Hello World";
-    }
 }

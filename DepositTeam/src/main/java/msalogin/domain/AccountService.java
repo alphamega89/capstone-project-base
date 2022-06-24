@@ -1,10 +1,10 @@
 package msalogin.domain;
 
 public interface AccountService {
-    void createAccount (String customerId);
-    void deleteAccount (String customerId);
-    void depositAccount(String customerId, Double money);
-    void withdrawAccount(String customerId, Double money);
-    Account getAccount(String customerId);
+    void createAccount (int customerId);
+    void deleteAccount (int customerId);
+    void depositAccount(int customerId, Double money);
+    void withdrawAccount(int customerId, Double money);
+    Account getAccount(int customerId);
     Account save(String data);
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@RepositoryRestResource(collectionResourceRel = "accounts", path = "accounts")
 public interface AccountRepository extends CrudRepository<Account, String> {
 
-    Optional<Account> findBycustomerId(String customerId);
+    Optional<Account> findBycustomerId(int customerId);
 
 }
 

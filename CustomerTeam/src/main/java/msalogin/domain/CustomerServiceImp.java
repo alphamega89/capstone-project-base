@@ -17,8 +17,8 @@ public class CustomerServiceImp implements CustomerService {
     @Autowired
     private final CustomerRepository customerRepository;
 
-    // 고객신규  (String customerId, String address, String telNo, String name, String juminNo);
-    public void createCustomer(String customerId, String address, String telNo, String name, String juminNo) {
+    // 고객신규  (int customerId, String address, String telNo, String name, String juminNo);
+    public void createCustomer(int customerId, String address, String telNo, String name, String juminNo) {
         System.out.println("#########Customer Service : Start Register Customer#######");
         Customer customer = new Customer();
 
@@ -36,7 +36,7 @@ public class CustomerServiceImp implements CustomerService {
         customerRepository.save(customer);
 
         //이벤트 발행
-        CustomerRegistered createcust = new CustomerRegistered();
+        CustomerUpdated createcust = new CustomerUpdated();
         //이벤트 발행 값 셋팅
         createcust.setCustomerId(customerId);
         createcust.setStatus(custStatus);
@@ -46,9 +46,9 @@ public class CustomerServiceImp implements CustomerService {
 
 
     //고객해지 (고객상태변경 : 1(정상) -> 9(해지) )
-    public void deleteCustomer(String customerId) {
+    public void deleteCustomer(int customerId) {
         System.out.println("#########Customer Service : Start Delete Customer#######");
-        Optional<Customer> customerOptional = customerRepository.findById(customerId);
+        Optional<Customer> customerOptional = customerRepository.findBycustomerId(customerId);
         Customer customer = customerOptional.get();
 
         String custStatus = "9";
@@ -59,7 +59,7 @@ public class CustomerServiceImp implements CustomerService {
         customerRepository.save(customer);
 
         //이벤트 발행
-        CustomerCancelled deletecust = new CustomerCancelled();
+        CustomerUpdated deletecust = new CustomerUpdated();
         //이벤트 발행 값 셋팅
         deletecust.setCustomerId(customerId);
         deletecust.setStatus(custStatus);
@@ -68,10 +68,10 @@ public class CustomerServiceImp implements CustomerService {
     }
 
     //고객조회
-    public Customer getCustomer(String customerId){
+    public Customer getCustomer(int customerId){
         
         System.out.println("#########Customer Service : Start Get Customer#######");
-        Optional<Customer> customerOptional = customerRepository.findById(customerId);
+        Optional<Customer> customerOptional = customerRepository.findBycustomerId(customerId);
         System.out.println("#########Get Customer obj############"+customerOptional);
         Customer customer = customerOptional.get();
 

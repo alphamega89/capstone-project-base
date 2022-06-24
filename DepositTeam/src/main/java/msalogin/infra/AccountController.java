@@ -21,35 +21,35 @@ public class AccountController {
 
     //계좌 신규 (String customerId, String bankingId, String password, String status);
     @RequestMapping(value = "/create/{customerId}", method = RequestMethod.POST)
-    public void createAccountSvc (@PathVariable(value = "customerId") String customerId){
+    public void createAccountSvc (@PathVariable(value = "customerId") int customerId){
         System.out.println("#############AccountService Controller : Create############");
         accountService.createAccount(customerId);
     }
 
     //계좌 해지
     @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
-    public void deleteAccountSvc (@PathVariable(value = "customerId") String customerId){
+    public void deleteAccountSvc (@PathVariable(value = "customerId") int customerId){
         System.out.println("#############AccountService Controller : Delete############");
         accountService.deleteAccount(customerId);
     }
 
     //계좌 조회
     @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
-    public void getAccountSvc (@PathVariable(value = "customerId") String customerId){
+    public void getAccountSvc (@PathVariable(value = "customerId") int customerId){
         System.out.println("#############AccountService Controller : check############");
         accountService.getAccount(customerId);
     }
 
     //계좌 입금
     @RequestMapping(value = "/deposit/{customerId}/{money}", method = RequestMethod.POST)
-    public void depositAccountSvc (@PathVariable(value = "customerId") String customerId, @PathVariable(value = "money") Double money){
+    public void depositAccountSvc (@PathVariable(value = "customerId") int customerId, @PathVariable(value = "money") Double money){
         System.out.println("#############AccountService Controller : deposit############");
         accountService.depositAccount(customerId, money);
     }
 
     //계좌 출금
     @RequestMapping(value = "/withdraw/{customerId}/{money}", method = RequestMethod.POST)
-    public void withdrawAccountSvc (@PathVariable(value = "customerId") String customerId, @PathVariable(value = "money") Double money){
+    public void withdrawAccountSvc (@PathVariable(value = "customerId") int customerId, @PathVariable(value = "money") Double money){
         System.out.println("#############AccountService Controller : withdraw############");
         accountService.withdrawAccount(customerId, money);
     }

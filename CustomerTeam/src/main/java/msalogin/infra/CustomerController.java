@@ -19,10 +19,10 @@ public class CustomerController {
     CustomerService customerService;
     // keep
 
-    //고객생성 (String customerId, String address, String telNo, String name, String juminNo);
+    //고객생성 (int customerId, String address, String telNo, String name, String juminNo);
     @RequestMapping(value = "/create/{customerId}/{Address}/{Telno}/{Name}/{JuminNo}", method = RequestMethod.POST)
     public void createCustomerSvc (
-                                    @PathVariable(value = "customerId") String customerId, 
+                                    @PathVariable(value = "customerId") int customerId, 
                                     @PathVariable(value = "Address") String Address,
                                     @PathVariable(value = "Telno") String Telno,
                                     @PathVariable(value = "Name") String Name,
@@ -33,7 +33,7 @@ public class CustomerController {
 
     //고객해지
     @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
-    public void deleteCustomerSvc (@PathVariable(value = "customerId") String customerId){
+    public void deleteCustomerSvc (@PathVariable(value = "customerId") int customerId){
         System.out.println("#############Customer Controller : delete############");
         customerService.deleteCustomer(customerId);
     }
@@ -41,7 +41,7 @@ public class CustomerController {
     //고객조회
     //@RestResource(exported = true)
     @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
-    public Customer getCustomer(@PathVariable(value = "customerId") String customerId){
+    public Customer getCustomer(@PathVariable(value = "customerId") int customerId){
         System.out.println("#############Customer Controller method : getCustomer############"+customerId);
         return  this.customerService.getCustomer(customerId);
     }
