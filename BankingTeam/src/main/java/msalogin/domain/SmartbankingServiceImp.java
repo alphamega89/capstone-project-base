@@ -18,10 +18,10 @@ public class SmartbankingServiceImp implements SmartbankingService{
     private final SmartbankingRepository smartbankingRepository;
 
     //스마트폰뱅킹 신규
-    public void createSmartBanking (String customerId, String bankingId, String password){
+    public void createSmartBanking (int customerId, String bankingId, String password){
         System.out.println("#########Smartbanking Service : Start Register SmartbankingService#######");
         //신규된 고객 obj 확인
-        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findById(customerId);
+        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findBycustomerId(customerId);
         Smartbanking smartBankingCust = smartbankingOptional.get();
         //스마트폰뱅킹 신규 가입 정보 셋팅
         smartBankingCust.setBankingId(bankingId);
@@ -42,10 +42,10 @@ public class SmartbankingServiceImp implements SmartbankingService{
     }
 
     //스마트폰뱅킹 해지
-    public void deleteSmartBanking (String customerId){
+    public void deleteSmartBanking (int customerId){
         System.out.println("#########Smartbanking Service : Start Delete SmartbankingService#######");
         //고객 obj 확인
-        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findById(customerId);
+        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findBycustomerId(customerId);
         Smartbanking smartBankingCust = smartbankingOptional.get();
         //스마트폰뱅킹 고객 상태 정보 셋팅
         String custStatus = "9";
@@ -62,10 +62,10 @@ public class SmartbankingServiceImp implements SmartbankingService{
     }
 
     //조회
-    public Smartbanking getSmartBanking(String customerId){
+    public Smartbanking getSmartBanking(int customerId){
         
         System.out.println("#########Smartbanking Service : Start get SmartbankingService#######");
-        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findById(customerId);
+        Optional<Smartbanking> smartbankingOptional = smartbankingRepository.findBycustomerId(customerId);
         System.out.println("#########Get Smartbanking obj############"+smartbankingOptional);
         Smartbanking smartBankingCust = smartbankingOptional.get();
 

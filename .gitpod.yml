@@ -23,6 +23,8 @@ tasks:
 
 
 #           netstat -lntp | grep :808
+#           lsof -i :8084 
+#           kill -9 [PID NUM
 
 image:
   file: .gitpod.Dockerfile

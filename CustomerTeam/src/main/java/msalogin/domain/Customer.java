@@ -11,7 +11,7 @@ public class Customer {
 
     @Id
     @Column(name = "customer_id")
-    private String customerId;
+    private int customerId;
 
     private String status;
 

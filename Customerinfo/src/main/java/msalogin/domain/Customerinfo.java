@@ -3,6 +3,8 @@ package msalogin.domain;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+
 import lombok.Data;
 
 @Entity
@@ -12,7 +14,7 @@ public class Customerinfo {
 
     @Id
     @Column(name = "customer_id")
-    private String customerId;
+    private int customerId;
     private String customerStatus;
     private String bankingStatus;
     private String accountStatus;

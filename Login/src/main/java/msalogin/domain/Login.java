@@ -22,7 +22,7 @@ public class Login {
 
     @Id
     @Column(name = "customer_id")
-    private String customerId;
+    private int customerId;
 
     private String accountNum;
 

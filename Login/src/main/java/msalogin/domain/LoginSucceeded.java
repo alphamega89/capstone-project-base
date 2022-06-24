@@ -9,6 +9,7 @@ import msalogin.infra.AbstractEvent;
 public class LoginSucceeded extends AbstractEvent {
 
     private String bankingId;
+    private String customerNM;
     private String islogin;
     
     public LoginSucceeded() {

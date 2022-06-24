@@ -22,7 +22,7 @@ public class SmartbankingController {
     //스마튼폰뱅킹 신규 (String customerId, String bankingId, String password, String status);
     @RequestMapping(value = "/create/{customerId}/{bankingId}/{password}", method = RequestMethod.POST)
     public void createSmartBankingSvc (
-                                    @PathVariable(value = "customerId") String customerId, 
+                                    @PathVariable(value = "customerId") int customerId,
                                     @PathVariable(value = "bankingId") String bankingId,
                                     @PathVariable(value = "password") String password){
         System.out.println("#############SmartbankingService Controller : Create############");
@@ -31,7 +31,7 @@ public class SmartbankingController {
 
     //고객해지
     @RequestMapping(value = "/delete/{customerId}", method = RequestMethod.POST)
-    public void deleteSmartBankingSvc (@PathVariable(value = "customerId") String customerId){
+    public void deleteSmartBankingSvc (@PathVariable(value = "customerId") int customerId){
         System.out.println("#############SmartbankingService Controller : delete############");
         smartbankingService.deleteSmartBanking(customerId);
     }
@@ -39,7 +39,7 @@ public class SmartbankingController {
     //고객조회
     //@RestResource(exported = true)
     @RequestMapping(value = "/check/{customerId}", method = RequestMethod.GET)
-    public Smartbanking getSmartBanking(@PathVariable(value = "customerId") String customerId){
+    public Smartbanking getSmartBanking(@PathVariable(value = "customerId") int customerId){
         System.out.println("#############SmartbankingService Controller method : getCustomer############"+customerId);
         return  this.smartbankingService.getSmartBanking(customerId);
     }

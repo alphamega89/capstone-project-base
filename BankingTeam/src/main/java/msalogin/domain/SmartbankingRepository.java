@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 //@RepositoryRestResource(collectionResourceRel = "smartbankings",path = "smartbankings")
 public interface SmartbankingRepository extends CrudRepository<Smartbanking, String> {
-    Optional<Smartbanking> findBycustomerId(String customerId);
+    Optional<Smartbanking> findBycustomerId(int customerId);
 }
 
