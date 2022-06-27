@@ -31,6 +31,7 @@ axios.fixUrl = function(original){
 
   return url.href;
 }
+Vue.$http = axios;
 
 const templateFiles = require.context("./components", true);
 Vue.prototype.$ManagerLists = [];

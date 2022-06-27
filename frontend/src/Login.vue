@@ -17,14 +17,17 @@
                     outlined
                     style="width:450px;"
                     class="mx-auto"
+                    v-model="id"
                 ></v-text-field>
 
                 <v-text-field
                     label="비밀번호 입력"
                     password
                     outlined
+                    type="password"
                     style="width:450px;"
                     class="mx-auto"
+                    v-model="password"
                 ></v-text-field>
 
                 <div style="width:350px; margin-bottom:50px;" class="mx-auto">
@@ -32,7 +35,7 @@
                         block
                         color="teal"
                         rounded
-                        :to="'/main'"
+                        @click="login()"
                     >
                         <div style="font-size:20px; font-weight:700; text-align:center; color:white">로그인</div>
                     </v-btn>
@@ -46,8 +49,21 @@
 </template>
 
 <script>
+
   export default {
     name: "Login",
-    data: () => ({ drawer: null }),
+    data: () => ({
+        drawer: null,
+        id: null,
+        password: null
+    }),
+    methods: {
+        login() {
+            console.log(this.id + this.password)
+            this.$http.get(`/logins/validate/${this.id}/${this.password}`).then(function (result){
+                console.log(result)
+            }).catch(error => console.log(error));
+        }
+    }
   }
 </script>
