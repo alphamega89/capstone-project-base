@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: BankingTeam
-          destination: msalogin
+          destination: capstone
           contentType: application/json
         event-out:
-          destination: msalogin
+          destination: capstone
           contentType: application/json
 
 
