@@ -28,6 +28,9 @@
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.0"
   },
+
+  "proxy" : "https://8080-devjihwan-capstoneproje-0tojd1276h1.ws-us47.gitpod.io/",
+  
   "eslintConfig": {
     "root": true,
     "env": {

@@ -1,5 +1,5 @@
 package msalogin.domain;
 
 public interface LoginService {
-    void loginValidate (int customerId, String bankingId, String password);
+    Boolean loginValidate (String bankingId, String password);
 }
