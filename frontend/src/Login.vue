@@ -17,6 +17,7 @@
                     outlined
                     style="width:450px;"
                     class="mx-auto"
+                    :v-model="id"
                 ></v-text-field>
 
                 <v-text-field
@@ -25,9 +26,10 @@
                     outlined
                     style="width:450px;"
                     class="mx-auto"
+                    :v-model="password"
                 ></v-text-field>
 
-                <div style="width:350px; margin-bottom:50px;" class="mx-auto">
+                <div style="width:350px; margin-bottom:50px;" @click="loginSubmit" class="mx-auto">
                     <v-btn 
                         block
                         color="teal"
@@ -48,6 +50,18 @@
 <script>
   export default {
     name: "Login",
-    data: () => ({ drawer: null }),
-  }
+    data: () => ({ 
+        drawer: null ,
+        id: null,
+        password: null
+    }),
+    methods: {
+        loginSubmit() {
+            console.log(this.id + this.passwrod)
+            this.$http.get('/logins/validate/${this.id}/${this.password}').then(function(result){
+                console.log(result)
+            }).catch(error => console.log(error));
+        },  
+    }
+}
 </script>
