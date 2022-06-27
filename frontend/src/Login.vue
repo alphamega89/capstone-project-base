@@ -30,7 +30,7 @@
                     v-model="password"
                 ></v-text-field>
 
-                <div style="width:350px; margin-bottom:50px;" @click="loginSubmit" class="mx-auto">
+                <div style="width:350px; margin-bottom:50px;" class="mx-auto">
                     <v-btn 
                         block
                         color="teal"
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import router from './router';
 
   export default {
     name: "Login",
@@ -59,12 +61,15 @@
     }),
     methods: {
         login() {
-            console.log(this.id + this.password)
-            this.$http.get(`/logins/validate/${this.id}/${this.password}`).then(function (result){
-                console.log(result)
+            //console.log(this.id + this.password)
+            axios.get(`/logins/validate/${this.id}/${this.password}`).then(function(response){
+                console.log("TEST");
+                console.log(response);
+                if (response.data)
+                    router.push('/main')
+                    console.log(response);
             }).catch(error => console.log(error));
         }
     }
   }
-}
 </script>

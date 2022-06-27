@@ -20,10 +20,18 @@ public class LoginController {
 
     //스마트폰뱅킹 ID& Password 검증
     @RequestMapping(value = "/validate/{bankingId}/{password}", method = RequestMethod.GET)
-    public void loginValidateSvc (@PathVariable(value = "bankingId") String bankingId, 
+    public Boolean loginValidateSvc (@PathVariable(value = "bankingId") String bankingId, 
                                     @PathVariable(value = "password") String password){
         System.out.println("#############Login Controller : Checking ID&&PASSWORD############");
-        loginService.loginValidate(bankingId, password);
+        return loginService.loginValidate(bankingId, password);
+    }
+
+    //스마트폰뱅킹 ID& Password 검증
+    @RequestMapping(value = "/validateT/{bankingId}/{password}", method = RequestMethod.GET)
+    public String loginValidateSvcT (@PathVariable(value = "bankingId") String bankingId, 
+                                    @PathVariable(value = "password") String password){
+        System.out.println("#############Login Controller : Checking ID&&PASSWORD############");
+        return loginService.loginValidateT(bankingId, password);
     }
 
 

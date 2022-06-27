@@ -18,7 +18,7 @@ public class LoginServiceImp implements LoginService{
     
     @Autowired
     private final LoginRepository loginRepository;
-    
+    /* */
     //스마트폰뱅킹 ID& Password 검증
     public Boolean loginValidate (String bankingId, String password){
         System.out.println("#########Login Service : Start check ID&&&&PASSWORD#######");
@@ -61,7 +61,14 @@ public class LoginServiceImp implements LoginService{
             return isLoginStatus;
         }
 
-    }       
+    }
+    
+    public String loginValidateT (String bankingId, String password){
+        System.out.println("#########Login Service : Start check ID&&&&PASSWORD#######");
+
+        return "String";
+
+    }  
 
 }
 

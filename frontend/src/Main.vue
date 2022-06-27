@@ -1,7 +1,7 @@
 <template>
     <div style="text-align: -webkit-center;">
         <v-card style="width: 700px; height: 1000px; padding: 30px;">
-            <v-card-title style="font-size:30px; font-weight:700; width: 100%;"><b>이현지님</b>
+            <v-card-title style="font-size:30px; font-weight:700; width: 100%;"><b>MSA님</b>
                 <v-btn outlined rounded style="margin-left: 10px;"><b>전체계좌</b></v-btn>
                 <v-avatar color="red" size="20"
                     style="font-size:10px; float: right; margin-right: 10px; margin-left: -10px; color: white; position: absolute; margin-left: 73.6%; margin-top: -13px; z-index: 99;">
@@ -20,10 +20,10 @@
                     </v-avatar>
                 </div>
                 <div style="font-size:20px; font-weight:700; text-align:left;">
-                    <p>Knowhow 통장</p>
+                    <p>행복 Knowhow 통장</p>
                 </div>
                 <div style="font-size:15px; font-weight:500; text-align:left; margin-top:-10px;">
-                    <p>입출금 162-910305-85107</p>
+                    <p>입출금 162-******-85107</p>
                 </div>
             </v-card>
 
@@ -77,7 +77,7 @@
 
             <div style="width:350px; margin-top:50px;" class="mx-auto">
                 <v-btn :to="'/sub'" block color="teal" rounded>
-                    <div style="font-size:20px; font-weight:700; text-align:center; color:white">적금신청 하러가기</div>
+                    <div style="font-size:20px; font-weight:700; text-align:center; color:white">청년 희망 적금신청 하러가기</div>
                 </v-btn>
             </div>
         </v-card>
@@ -86,6 +86,5 @@
 <script>
   export default {
     name: 'Main',
-    data: () => ({ drawer: null }),
   }
 </script>

@@ -50,7 +50,7 @@
         <b>단, 소득이<br>2021년 총급여 3600만원 또는 종합소득금이<br>2600만원 이하만 가능해요!<br>사전 신청 후 소득 확인해볼까요?</b>
       </div>
       <div style="text-align: center; margin-bottom: 15px;">
-        <v-btn color="#178c72" :to="'/result'"><b style="color: white;">소득 확인해보러가기</b></v-btn>
+        <v-btn color="#178c72" :to="'/result'"><b style="color: white;">신청하러가기</b></v-btn>
       </div>
     </v-card>
 
