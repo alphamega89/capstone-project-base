@@ -26,5 +26,17 @@ tasks:
 #           lsof -i :8084 
 #           kill -9 [PID NUM
 
-image:
-  file: .gitpod.Dockerfile
+# image:
+#   file: .gitpod.Dockerfile
+  
+  
+# kubectl apply -f - <<EOF
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: siege
+# spec:
+#   containers:
+#   - name: siege
+#     image: apexacme/siege-nginx
+# EOF
