@@ -1,0 +1,6 @@
+[2022-06-24 09:04:23,073] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 0 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+[2022-06-24 09:14:23,073] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 0 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+[2022-06-24 09:24:23,073] INFO [GroupMetadataManager brokerId=0] Removed 0 expired offsets in 0 milliseconds. (kafka.coordinator.group.GroupMetadataManager)
+[2022-06-24 09:29:32,862] INFO Terminating process due to signal SIGHUP (org.apache.kafka.common.utils.LoggingSignalHandler)
+[2022-06-24 09:29:32,864] INFO [KafkaServer id=0] shutting down (kafka.server.KafkaServer)
+[2022-06-24 09:29:32,865] INFO [KafkaServer id=0] Starting controlled shutdown (kafka.server.KafkaServer)
