@@ -31,6 +31,7 @@ axios.fixUrl = function(original){
 
   return url.href;
 }
+Vue.$http = axios;
 
 Vue.$http = axios;
 
