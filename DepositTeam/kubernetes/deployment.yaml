@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: DepositTeam
+  name: depositTeam
   labels:
-    app: DepositTeam
+    app: depositTeam
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: DepositTeam
+      app: depositTeam
   template:
     metadata:
       labels:
-        app: DepositTeam
+        app: depositTeam
     spec:
       containers:
-        - name: DepositTeam
-          image: username/DepositTeam:latest
+        - name: depositTeam
+          image: username/depositTeam:latest
           ports:
             - containerPort: 8080
           readinessProbe:

@@ -75,10 +75,10 @@ spring:
       bindings:
         event-in:
           group: BankingTeam
-          destination: capstone
+          destination: ${KAFKAID}
           contentType: application/json
         event-out:
-          destination: capstone
+          destination: ${KAFKAID}
           contentType: application/json
 
 

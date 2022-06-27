@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BankingTeam
+  name: bankingTeam
   labels:
-    app: BankingTeam
+    app: bankingTeam
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BankingTeam
+      app: bankingTeam
   template:
     metadata:
       labels:
-        app: BankingTeam
+        app: bankingTeam
     spec:
       containers:
-        - name: BankingTeam
-          image: username/BankingTeam:latest
+        - name: bankingTeam
+          image: username/bankingTeam:latest
           ports:
             - containerPort: 8080
           readinessProbe:

@@ -20,11 +20,11 @@ public class LoginServiceImp implements LoginService{
     private final LoginRepository loginRepository;
     
     //스마트폰뱅킹 ID& Password 검증
-    public void loginValidate (int customerId, String bankingId, String password){
+    public Boolean loginValidate (String bankingId, String password){
         System.out.println("#########Login Service : Start check ID&&&&PASSWORD#######");
 
         //고객번호로 banking id && password obj 확인
-        Optional<Login> loginOptional = loginRepository.findBycustomerId(customerId);
+        Optional<Login> loginOptional = loginRepository.findBybankingId(bankingId);
         Login logintCust = loginOptional.get();
         
         //로그인 상태 초기값 셋팅 = null
@@ -39,17 +39,26 @@ public class LoginServiceImp implements LoginService{
                 System.out.println("#########Login Service : Correct ID&&&&PASSWORD#######");
                 isLoginStatus = true;
                 logintCust.setIslogin(isLoginStatus);
+                loginRepository.save(logintCust);
+
+                return isLoginStatus;
             }
             else{
                 System.out.println("#########Login Service : Fail to login, password is incorrect#######");
                 isLoginStatus = false;
                 logintCust.setIslogin(isLoginStatus);
+                loginRepository.save(logintCust);
+
+                return isLoginStatus;
             }
         }
         else{
             System.out.println("#########Login Service : inCorrect ID#######");
             isLoginStatus = false;
             logintCust.setIslogin(isLoginStatus);
+            loginRepository.save(logintCust);
+
+            return isLoginStatus;
         }
 
     }       

@@ -14,5 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public interface LoginRepository extends CrudRepository<Login, String> {
     
     Optional<Login> findBycustomerId(int customerId);
+    Optional<Login> findBybankingId(String bankingId);
 }
+
 
