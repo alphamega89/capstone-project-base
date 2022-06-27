@@ -33,6 +33,8 @@ axios.fixUrl = function(original){
 }
 Vue.$http = axios;
 
+Vue.$http = axios;
+
 const templateFiles = require.context("./components", true);
 Vue.prototype.$ManagerLists = [];
 templateFiles.keys().forEach(function(tempFiles) {

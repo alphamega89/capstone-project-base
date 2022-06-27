@@ -30,7 +30,7 @@
                     v-model="password"
                 ></v-text-field>
 
-                <div style="width:350px; margin-bottom:50px;" class="mx-auto">
+                <div style="width:350px; margin-bottom:50px;" @click="loginSubmit" class="mx-auto">
                     <v-btn 
                         block
                         color="teal"
@@ -66,4 +66,5 @@
         }
     }
   }
+}
 </script>
