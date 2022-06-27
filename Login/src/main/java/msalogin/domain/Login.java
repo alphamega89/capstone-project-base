@@ -30,6 +30,6 @@ public class Login {
 
     private String accountStatus;
 
-    private String islogin;
+    private Boolean islogin;
 
 }

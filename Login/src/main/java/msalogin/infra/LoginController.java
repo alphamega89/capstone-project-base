@@ -15,8 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @Transactional
 public class LoginController {
 
-    //@Autowired
-    //LoginRepository loginRepository;
-    // keep
+    @Autowired
+    LoginService loginService;
+
+    //스마트폰뱅킹 ID& Password 검증
+    @RequestMapping(value = "/validate/{custormerId}/{bankingId}/{password}", method = RequestMethod.POST)
+    public void loginValidateSvc (@PathVariable(value = "customerId") int customerId,
+                                    @PathVariable(value = "bankingId") String bankingId, 
+                                    @PathVariable(value = "password") String password){
+        System.out.println("#############Login Controller : Checking ID&&PASSWORD############");
+        loginService.loginValidate(customerId, bankingId, password);
+    }
+
+
 
 }
