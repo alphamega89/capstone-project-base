@@ -1,0 +1,12 @@
+newaccount/infra/PreApplicationAHateoasProcessor.class
+newaccount/domain/IncomeVerifiedE.class
+newaccount/infra/AbstractEvent.class
+newaccount/infra/AbstractEvent$1.class
+newaccount/domain/AccountOpenedE.class
+newaccount/domain/PreApplicationARepository.class
+newaccount/infra/PolicyHandler.class
+newaccount/domain/PreAppliedE.class
+newaccount/domain/PreApplicationA.class
+newaccount/PreapplyApplication.class
+newaccount/config/kafka/KafkaProcessor.class
+newaccount/infra/PreApplicationAController.class

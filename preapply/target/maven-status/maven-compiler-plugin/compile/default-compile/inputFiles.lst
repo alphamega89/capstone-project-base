@@ -1,0 +1,11 @@
+/home/project/newaccount3/preapply/src/main/java/newaccount/domain/PreApplicationA.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/PreapplyApplication.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/domain/IncomeVerifiedE.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/domain/AccountOpenedE.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/infra/PreApplicationAController.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/domain/PreApplicationARepository.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/config/kafka/KafkaProcessor.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/infra/PreApplicationAHateoasProcessor.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/infra/AbstractEvent.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/infra/PolicyHandler.java
+/home/project/newaccount3/preapply/src/main/java/newaccount/domain/PreAppliedE.java

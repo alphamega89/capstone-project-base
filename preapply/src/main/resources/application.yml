@@ -1,0 +1,84 @@
+server:
+  port: 8080
+
+---
+
+spring:
+  profiles: default
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+        streams:
+          binder:
+            configuration:
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      bindings:
+        event-in:
+          group: preapply
+          destination: newaccount
+          contentType: application/json
+        event-out:
+          destination: newaccount
+          contentType: application/json
+
+logging:
+  level:
+    org.hibernate.type: trace
+    org.springframework.cloud: debug
+
+
+server:
+  port: 8081
+---
+
+spring:
+  profiles: docker
+  jpa:
+    hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  datasource:
+    url: jdbc:mysql://${DBURL}/${DBNM}
+    username: ${DBID}
+    password: ${DBPW}
+    driverClassName: com.mysql.cj.jdbc.Driver
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKER}
+        streams:
+          binder:
+            configuration:
+              default:
+                key:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value:
+                  serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      bindings:
+        event-in:
+          group: preapply
+          destination: ${KAFKAID}
+          contentType: application/json
+        event-out:
+          destination: ${KAFKAID}
+          contentType: application/json
+
+
