@@ -63,7 +63,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: ${KAFAK_BROKER}
+          brokers: ${KAFKA_BROKER}
         streams:
           binder:
             configuration:
